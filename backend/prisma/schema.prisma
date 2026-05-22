@@ -17,6 +17,7 @@ model User {
   username String @unique
   email String @unique
   password String
+  createdAt DateTime @default(now())
   applications Application[]
 }
 model Application {
@@ -31,4 +32,5 @@ model Application {
   stage String?
   notes String? @db.Text
   submission DateTime?
+  updatedAt DateTime @updatedAt
 }
