@@ -5,3 +5,29 @@ generator client {
 datasource db {
   provider = "mysql"
 }
+enum Status {
+  APPLIED
+  REVIEW
+  APPROVED
+  REJECTED
+}
+model User {
+  id Int @id @default(autoincrement())
+  name String
+  username String @unique
+  email String @unique
+  password String
+  applications Application[]
+}
+model Application {
+  id Int @id @default(autoincrement())
+  userId Int
+  owner User @relation(fields: [userId], references: [id])
+  title String
+  description String?
+  qualifications String?
+  status Status @default(APPLIED)
+  stage String?
+  notes String?
+  submission DateTime?
+}
