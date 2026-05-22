@@ -24,10 +24,10 @@ model Application {
   userId Int
   owner User @relation(fields: [userId], references: [id])
   title String
-  description String?
-  qualifications String?
+  description String? @db.Text
+  qualifications String? @db.Text
   status Status @default(APPLIED)
   stage String?
-  notes String?
+  notes String? @db.Text
   submission DateTime?
 }
