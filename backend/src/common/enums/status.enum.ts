@@ -1,0 +1,6 @@
+export enum Status {
+  APPLIED = 'APPLIED',
+  REVIEW = 'REVIEW',
+  APPROVED = 'APPROVED',
+  REJECTED = 'REJECTED'
+}
