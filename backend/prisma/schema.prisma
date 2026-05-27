@@ -31,6 +31,7 @@ model Application {
   status Status @default(APPLIED)
   stage String?
   notes String? @db.Text
+  url String?
   submission DateTime?
   updatedAt DateTime @updatedAt
 }
