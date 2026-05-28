@@ -1,8 +1,8 @@
 import { Controller, Get, Post, Patch, Delete, Param, Body, Request, UseGuards, ParseIntPipe } from '@nestjs/common';
-import { ApplicationsService } from './applications.service';
-import { CreateApplicationDto } from './dto/create-application.dto';
-import { UpdateApplicationDto } from './dto/update-application.dto';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { ApplicationsService } from './applications.service.js';
+import { CreateApplicationDto } from './dto/create-application.dto.js';
+import { UpdateApplicationDto } from './dto/update-application.dto.js';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard.js';
 @UseGuards(JwtAuthGuard)
 @Controller('applications')
 export class ApplicationsController {

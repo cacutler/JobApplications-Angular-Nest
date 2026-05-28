@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ApplicationsController } from './applications.controller';
-import { ApplicationsService } from './applications.service';
+import { ApplicationsController } from './applications.controller.js';
+import { ApplicationsService } from './applications.service.js';
 describe('ApplicationsController', () => {
   let controller: ApplicationsController;
   beforeEach(async () => {

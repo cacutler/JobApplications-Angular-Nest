@@ -1,5 +1,5 @@
 import { IsString, IsOptional, IsUrl, IsDateString, IsEnum } from "class-validator";
-import {Status} from '../../common/enums/status.enum';
+import {Status} from '../../common/enums/status.enum.js';
 export class CreateApplicationDto {
     @IsString()
     title: string;
