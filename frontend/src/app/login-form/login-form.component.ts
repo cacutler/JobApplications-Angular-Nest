@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-@Component({selector: 'app-login-form', imports: [FormsModule], templateUrl: './login-form.component.html', styleUrl: './login-form.component.css'})
+@Component({selector: 'app-login-form', imports: [FormsModule, RouterLink], templateUrl: './login-form.component.html', styleUrl: './login-form.component.css'})
 export class LoginFormComponent {
     email = '';
     password = '';
