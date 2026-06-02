@@ -5,22 +5,19 @@ import { AuthService } from './auth.service';
 export class ApplicationsService {
     private url = "http://localhost:3000/applications";
     constructor(private http: HttpClient, private auth: AuthService) {}
-    private headers() {
-        return {headers: {Authorization: `Bearer ${this.auth.getToken()}`}};
-    }
     getAll() {
-        return this.http.get<any[]>(this.url, this.headers());
+        return this.http.get<any[]>(this.url, this.auth.authHeaders());
     }
     getOne(id: number) {
-        return this.http.get<any>(`${this.url}/${id}`, this.headers());
+        return this.http.get<any>(`${this.url}/${id}`, this.auth.authHeaders());
     }
     create(data: any) {
-        return this.http.post<any>(this.url, data, this.headers());
+        return this.http.post<any>(this.url, data, this.auth.authHeaders());
     }
     update(id: number, data: any) {
-        return this.http.patch<any>(`${this.url}/${id}`, data, this.headers());
+        return this.http.patch<any>(`${this.url}/${id}`, data, this.auth.authHeaders());
     }
     delete(id: number) {
-        return this.http.delete<any>(`${this.url}/${id}`, this.headers());
+        return this.http.delete<any>(`${this.url}/${id}`, this.auth.authHeaders());
     }
 }
