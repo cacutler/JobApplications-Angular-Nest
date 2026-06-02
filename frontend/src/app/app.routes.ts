@@ -15,5 +15,5 @@ export const routes: Routes = [
     {path: 'applications/:id', component: ApplicationDetailsComponent, canActivate: [authGuard]},
     {path: 'applications/:id/edit', component: EditFormComponent, canActivate: [authGuard]},
     {path: 'profile/edit', component: UpdateUserFormComponent, canActivate: [authGuard]},
-    {path: '', redirectTo: '/', pathMatch: 'full'}
+    {path: '', redirectTo: '/applications', pathMatch: 'full'}
 ];
