@@ -1,6 +1,57 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-@Component({selector: 'app-edit-form', imports: [FormsModule], templateUrl: './edit-form.component.html', styleUrl: './edit-form.component.css'})
-export class EditFormComponent {
-
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ApplicationsService } from '../services/applications.service';
+@Component({selector: 'app-edit-form', imports: [FormsModule, RouterLink], templateUrl: './edit-form.component.html', styleUrl: './edit-form.component.css'})
+export class EditFormComponent implements OnInit {
+    id!: number;
+    title = "";
+    company = "";
+    description = "";
+    qualifications = "";
+    status = "APPLIED";
+    stage = "";
+    url = "";
+    submission = "";
+    error = "";
+    constructor(private applicationsService: ApplicationsService, private route: ActivatedRoute, private router: Router) {}
+    ngOnInit() {
+        this.id = Number(this.route.snapshot.paramMap.get("id"));
+        this.applicationsService.getOne(this.id).subscribe({
+            next: (app) => {
+                this.title = app.title;
+                this.company = app.company;
+                this.description = app.description ?? "";
+                this.qualifications = app.qualifications ?? "";
+                this.status = app.status;
+                this.stage = app.stage ?? "";
+                this.url = app.url ?? "";
+                this.submission = app.submission ? app.submission.substring(0, 10) : "";//Format date as YYYY-MM-DD for the date input
+            },
+            error: () => this.error = "Failed to load application."
+        });
+    }
+    onSubmit() {
+        this.error = "";
+        const payload: any = {title: this.title, company: this.company, status: this.status};
+        if (this.description) {
+            payload.description = this.description;
+        }
+        if (this.qualifications) {
+            payload.qualifications = this.qualifications;
+        }
+        if (this.stage) {
+            payload.stage = this.stage;
+        }
+        if (this.url) {
+            payload.url = this.url;
+        }
+        if (this.submission) {
+            payload.submission = this.submission;
+        }
+        this.applicationsService.update(this.id, payload).subscribe({
+            next: () => this.router.navigate(['/applications', this.id]),
+            error: () => this.error = "Failed to update application."
+        });
+    }
 }

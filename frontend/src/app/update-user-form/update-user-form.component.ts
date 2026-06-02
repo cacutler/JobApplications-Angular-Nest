@@ -1,6 +1,37 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-@Component({selector: 'app-update-user-form', imports: [FormsModule], templateUrl: './update-user-form.component.html', styleUrl: './update-user-form.component.css'})
-export class UpdateUserFormComponent {
-
+import { UsersService } from '../services/users.service';
+import { AuthService } from '../services/auth.service';
+@Component({selector: 'app-update-user-form', imports: [FormsModule, CommonModule], templateUrl: './update-user-form.component.html', styleUrl: './update-user-form.component.css'})
+export class UpdateUserFormComponent implements OnInit {
+    name = "";
+    username = "";
+    email = "";
+    password = "";
+    error = "";
+    success = "";
+    constructor(private usersService: UsersService, private auth: AuthService) {}
+    ngOnInit() {
+        this.usersService.getMe().subscribe({
+            next: (user) => {
+                this.name = user.name;
+                this.username = user.username;
+                this.email = user.email;
+            },
+            error: () => this.error = "Failed to load profile."
+        });
+    }
+    onSubmit() {
+        this.error = "";
+        this.success = "";
+        const payload: any = {name: this.name, username: this.username, email: this.email};
+        if (this.password) {
+            payload.password = this.password;
+        }
+        this.usersService.update(payload).subscribe({
+            next: () => this.success = "Profile updated successfully.",
+            error: () => this.error = "Failed to updated profile."
+        });
+    }
 }
