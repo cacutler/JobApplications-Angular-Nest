@@ -19,7 +19,7 @@ export class RegisterFormComponent {
                 this.router.navigate(["/applications"]);
             },
             error: (err) => {
-                this.error = err.status === 409 ? "Email alread in use." : "Registration failed.";
+                this.error = err.status === 409 ? "Email already in use." : "Registration failed.";
             }
         });
     }
