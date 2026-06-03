@@ -1,8 +1,9 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ApplicationsService } from '../services/applications.service';
-@Component({selector: 'app-application-list', imports: [CommonModule, RouterLink], templateUrl: './application-list.component.html', styleUrl: './application-list.component.css'})
+import { NgIf } from "@angular/common";
+@Component({selector: 'app-application-list', imports: [CommonModule, RouterLink, NgIf, NgFor], templateUrl: './application-list.component.html', styleUrl: './application-list.component.css'})
 export class ApplicationListComponent implements OnInit {
     applications: any[] = [];
     error = "";
@@ -10,7 +11,7 @@ export class ApplicationListComponent implements OnInit {
     ngOnInit() {
         this.applicationsService.getAll().subscribe({
             next: (data) => this.applications = data,
-            error: () => this.error = "Failed to load applications"
+            error: () => this.error = "Failed to load applications."
         });
     }
     delete(id: number) {

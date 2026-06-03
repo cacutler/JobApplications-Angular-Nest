@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ApplicationsService } from '../services/applications.service';
-@Component({selector: 'app-create-form', imports: [FormsModule, RouterLink], templateUrl: './create-form.component.html', styleUrl: './create-form.component.css'})
+import { NgIf } from "@angular/common";
+@Component({selector: 'app-create-form', imports: [FormsModule, RouterLink, NgIf], templateUrl: './create-form.component.html', styleUrl: './create-form.component.css'})
 export class CreateFormComponent {
     title = "";
     company = "";
@@ -12,6 +13,7 @@ export class CreateFormComponent {
     stage = "";
     url = "";
     submission = "";
+    notes = "";
     error = "";
     constructor(private applicationService: ApplicationsService, private router: Router) {}
     onSubmit() {
@@ -31,6 +33,9 @@ export class CreateFormComponent {
         }
         if (this.submission) {
             payload.submission = this.submission;
+        }
+        if (this.notes) {
+            payload.notes = this.notes;
         }
         this.applicationService.create(payload).subscribe({
             next: (res) => this.router.navigate(["/applications", res.id]),

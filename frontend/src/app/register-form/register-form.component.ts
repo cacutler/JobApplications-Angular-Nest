@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from "@angular/router";
 import { AuthService } from '../services/auth.service';
-@Component({selector: 'app-register-form', imports: [FormsModule, RouterLink], templateUrl: './register-form.component.html', styleUrl: './register-form.component.css'})
+import {NgIf} from "@angular/common";
+@Component({selector: 'app-register-form', imports: [FormsModule, RouterLink, NgIf], templateUrl: './register-form.component.html', styleUrl: './register-form.component.css'})
 export class RegisterFormComponent {
     name = "";
     username = "";

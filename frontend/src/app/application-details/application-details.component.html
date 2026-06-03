@@ -1,13 +1,15 @@
-<h2>Application Details</h2>
-<p><b>Title</b></p>
-<div id="application-details">
-    <p>Current Status:</p>
-    <p>Stage:</p>
-    <p>Job Post URL:</p>
-    <p>Submission Date:</p>
-</div>
-<div id="job-details">
-    <p>Company:</p>
-    <p>Description</p>
-    <p>Qualifications</p>
+<div *ngIf="application">
+    <h2>{{application.title}}</h2>
+    <div id="application-details">
+        <p><strong>Current Status:</strong> {{application.status}}</p>
+        <p><strong>Stage:</strong> {{application.stage}}</p>
+        <p><strong>Job Post URL:</strong><a *ngIf="application.url" [href]="application.url" target="_url">{{application.url}}</a><span *ngIf="!application.url">-</span></p>
+        <p><strong>Submission Date:</strong> {{application.submission ? (application.submission | date) : "-"}}</p>
+        <p *ngIf="application.notes"><strong>Notes:</strong> {{application.notes}}</p><!-- Work on notes support -->
+    </div>
+    <div id="job-details">
+        <p><strong>Company:</strong> {{application.company}}</p>
+        <p><strong>Description:</strong> {{application.description || "-"}}</p>
+        <p><strong>Qualifications:</strong> {{application.qualifications || "-"}}</p>
+    </div>
 </div>

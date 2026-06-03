@@ -1,8 +1,8 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ApplicationsService } from '../services/applications.service';
-@Component({selector: 'app-application-details', imports: [CommonModule, RouterLink], templateUrl: './application-details.component.html', styleUrl: './application-details.component.css'})
+@Component({selector: 'app-application-details', imports: [CommonModule, RouterLink, NgIf], templateUrl: './application-details.component.html', styleUrl: './application-details.component.css'})
 export class ApplicationDetailsComponent implements OnInit {
     application: any = null;
     error = "";

@@ -1,11 +1,13 @@
-<form action="" method="post" id="update-user-profile-form">
+<form (ngSubmit)="onSubmit()" id="update-user-profile-form">
     <label for="name">Name</label>
-    <input type="text" name="name">
+    <input type="text" id="name" name="name" [(ngModel)]="name" required>
     <label for="username">Username</label>
-    <input type="text" name="username">
+    <input type="text" id="username" name="username" [(ngModel)]="username" required>
     <label for="email">Email</label>
-    <input type="email" name="email">
-    <label for="password">Password</label>
-    <input type="password" name="password">
-    <button>Update User Profile</button>
+    <input type="email" id="email" name="email" [(ngModel)]="email" required>
+    <label for="password">New Password <small>(leave blank to keep current)</small></label>
+    <input type="password" id="password" name="password" [(ngModel)]="password" minlength="8">
+    <p class="error" *ngIf="error">{{error}}</p>
+    <p class="success" *ngIf="success">{{success}}</p>
+    <button type="submit">Update User Profile</button>
 </form>

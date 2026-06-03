@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ApplicationsService } from '../services/applications.service';
-@Component({selector: 'app-edit-form', imports: [FormsModule, RouterLink], templateUrl: './edit-form.component.html', styleUrl: './edit-form.component.css'})
+import { NgIf } from '@angular/common';
+@Component({selector: 'app-edit-form', imports: [FormsModule, RouterLink, NgIf], templateUrl: './edit-form.component.html', styleUrl: './edit-form.component.css'})
 export class EditFormComponent implements OnInit {
     id!: number;
     title = "";
@@ -14,6 +15,7 @@ export class EditFormComponent implements OnInit {
     url = "";
     submission = "";
     error = "";
+    notes = "";
     constructor(private applicationsService: ApplicationsService, private route: ActivatedRoute, private router: Router) {}
     ngOnInit() {
         this.id = Number(this.route.snapshot.paramMap.get("id"));
@@ -26,6 +28,7 @@ export class EditFormComponent implements OnInit {
                 this.status = app.status;
                 this.stage = app.stage ?? "";
                 this.url = app.url ?? "";
+                this.notes = app.notes ?? "";
                 this.submission = app.submission ? app.submission.substring(0, 10) : "";//Format date as YYYY-MM-DD for the date input
             },
             error: () => this.error = "Failed to load application."
@@ -48,6 +51,9 @@ export class EditFormComponent implements OnInit {
         }
         if (this.submission) {
             payload.submission = this.submission;
+        }
+        if (this.notes) {
+            payload.notes = this.notes;
         }
         this.applicationsService.update(this.id, payload).subscribe({
             next: () => this.router.navigate(['/applications', this.id]),

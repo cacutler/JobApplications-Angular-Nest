@@ -1,1 +1,11 @@
 <h2>Applications</h2>
+<a routerLink="/applications/new">+ New Application</a>
+<p class="error" *ngIf="">{{error}}</p>
+<p *ngIf="applications.length === 0 && !error">No applications yet.</p>
+<ul *ngIf="applications.length > 0">
+    <li *ngFor="let app of applications">
+        <a [routerLink]="['/applications', app.id]"><strong>{{app.title}}</strong> - {{app.company}}</a>
+        <span>{{app.status}}</span>
+        <button (click)="delete(app.id)">Delete</button>
+    </li>
+</ul>

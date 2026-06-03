@@ -1,24 +1,28 @@
-<form action="" method="post" id="job-application-create-form">
+<form (ngSubmit)="onSubmit()" id="job-application-create-form">
     <label for="title">Title</label>
-    <input type="text" name="title">
+    <input type="text" name="title" id="title" [(ngModel)]="title" required>
     <label for="company">Company</label>
-    <input type="text" name="company">
+    <input type="text" name="company" id="company" [(ngModel)]="company" required>
     <label for="description">Description</label>
-    <textarea name="description"></textarea>
+    <textarea name="description" id="description" [(ngModel)]="description"></textarea>
     <label for="qualifications">Qualifications</label>
-    <textarea name="qualifications"></textarea>
+    <textarea name="qualifications" id="qualifications" [(ngModel)]="qualifications"></textarea>
+    <label for="notes">Notes</label>
+    <textarea name="notes" id="notes" [(ngModel)]="notes"></textarea>
     <label for="status"></label>
-    <select name="status">
+    <select name="status" id="status" [(ngModel)]="status">
         <option value="APPLIED" selected>Applied</option>
         <option value="REVIEW">In Review</option>
         <option value="APPROVED">Approved</option>
         <option value="REJECTED">Rejected</option>
     </select>
     <label for="stage">Stage</label>
-    <input type="text" name="stage">
+    <input type="text" name="stage" id="stage" [(ngModel)]="stage">
     <label for="url">Job Post Link</label>
-    <input type="url" name="url">
+    <input type="url" name="url" id="url" [(ngModel)]="url">
     <label for="submission">Application Submission Date</label>
-    <input type="date" name="submission">
-    <button>Create Application</button>
+    <input type="date" name="submission" id="submission" [(ngModel)]="submission">
+    <p class="error" *ngIf="error">{{error}}</p>
+    <button type="submit">Create Application</button>
+    <a routerLink="/applications">Cancel</a>
 </form>
