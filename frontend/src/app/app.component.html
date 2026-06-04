@@ -1,11 +1,11 @@
 <main class="main">
-    <h1>Job Tracker</h1>
-    <form *ngIf="isLoggedIn$ | async" (ngSubmit)="onSubmit()">
-        <button type="submit" (click)="onSubmit()">Logout</button>
-    </form>
+    <h1>{{title}}</h1>
+    <button id="logout" *ngIf="isLoggedIn$ | async" (click)="onSubmit()">Logout</button>
     <nav *ngIf="!(isLoggedIn$ | async)">
-        <a routerLink="/login">Login</a>
-        <a routerLink="/register">Sign Up</a>
+        <div class="guest-links">
+            <a routerLink="/login">Login</a>
+            <a routerLink="/register">Sign Up</a>
+        </div>
     </nav>
 </main>
 <router-outlet/>

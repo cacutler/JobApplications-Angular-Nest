@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { AsyncPipe } from '@angular/common';
 @Component({selector: 'app-root', imports: [RouterOutlet, RouterLinkWithHref, CommonModule, AsyncPipe], templateUrl: './app.component.html', styleUrl: './app.component.css'})
 export class AppComponent {
-    title: string = "Job Application";
+    title: string = "Job Tracker";
     isLoggedIn$;
     constructor(private auth: AuthService, private router: Router) {
         this.isLoggedIn$ = this.auth.isLoggedIn$;

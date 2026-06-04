@@ -1,0 +1,26 @@
+form a {
+    text-align: center;
+    text-decoration: none;
+    align-self: center;
+    width: 8rem;
+    color: black;
+}
+form label, form input {
+    margin: 0.25rem 0rem;
+}
+form button {
+    margin: 1rem 0rem;
+    width: 25%;
+    align-self: center;
+    background-color: #00FF52;
+}
+form a:hover {
+    background-color: #00DE94;
+    align-self: center;
+    width: 8rem;
+}
+.error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
