@@ -1,11 +1,20 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
+import { RouterOutlet, RouterLinkWithHref, Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
-@Component({selector: 'app-root', imports: [RouterOutlet, RouterLinkWithHref], templateUrl: './app.component.html', styleUrl: './app.component.css'})
+import { CommonModule } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
+@Component({selector: 'app-root', imports: [RouterOutlet, RouterLinkWithHref, CommonModule, AsyncPipe], templateUrl: './app.component.html', styleUrl: './app.component.css'})
 export class AppComponent {
     title: string = "Job Application";
-    constructor(private auth: AuthService) {}
+    isLoggedIn$;
+    constructor(private auth: AuthService, private router: Router) {
+        this.isLoggedIn$ = this.auth.isLoggedIn$;
+    }
+    get isLoggedIn(): boolean {
+        return this.auth.isLoggedIn();
+    }
     onSubmit() {
         this.auth.logout();
+        this.router.navigate(['/login']);
     }
 }
