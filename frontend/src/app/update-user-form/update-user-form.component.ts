@@ -5,12 +5,12 @@ import { UsersService } from '../services/users.service';
 import { AuthService } from '../services/auth.service';
 @Component({selector: 'app-update-user-form', imports: [FormsModule, CommonModule, NgIf], templateUrl: './update-user-form.component.html', styleUrl: './update-user-form.component.css'})
 export class UpdateUserFormComponent implements OnInit {
-    name = "";
-    username = "";
-    email = "";
-    password = "";
-    error = "";
-    success = "";
+    name: string = "";
+    username: string = "";
+    email: string = "";
+    password: string = "";
+    error: string = "";
+    success: string = "";
     constructor(private usersService: UsersService, private auth: AuthService) {}
     ngOnInit() {
         this.usersService.getMe().subscribe({
@@ -29,9 +29,6 @@ export class UpdateUserFormComponent implements OnInit {
         if (this.password) {
             payload.password = this.password;
         }
-        this.usersService.update(payload).subscribe({
-            next: () => this.success = "Profile updated successfully.",
-            error: () => this.error = "Failed to updated profile."
-        });
+        this.usersService.update(payload).subscribe({next: () => this.success = "Profile updated successfully.", error: () => this.error = "Failed to updated profile."});
     }
 }

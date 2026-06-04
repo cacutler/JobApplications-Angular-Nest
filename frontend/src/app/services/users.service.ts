@@ -8,7 +8,7 @@ export class UsersService {
     getMe() {
         return this.http.get<any>('http://localhost:3000/auth/me', this.auth.authHeaders());
     }
-    update(data: { name?: string; username?: string; email?: string; password?: string }) {
+    update(data: {name?: string; username?: string; email?: string; password?: string}) {
         return this.http.patch<any>(`${this.url}/me`, data, this.auth.authHeaders());
     }
 }

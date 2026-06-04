@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 @Injectable({providedIn: 'root'})
 export class ApplicationsService {
-    private url = "http://localhost:3000/applications";
+    private url: string = "http://localhost:3000/applications";
     constructor(private http: HttpClient, private auth: AuthService) {}
     getAll() {
         return this.http.get<any[]>(this.url, this.auth.authHeaders());

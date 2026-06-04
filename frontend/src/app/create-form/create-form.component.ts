@@ -5,16 +5,16 @@ import { ApplicationsService } from '../services/applications.service';
 import { NgIf } from "@angular/common";
 @Component({selector: 'app-create-form', imports: [FormsModule, RouterLink, NgIf], templateUrl: './create-form.component.html', styleUrl: './create-form.component.css'})
 export class CreateFormComponent {
-    title = "";
-    company = "";
-    description = "";
-    qualifications = "";
-    status = "APPLIED";
-    stage = "";
-    url = "";
-    submission = "";
-    notes = "";
-    error = "";
+    title: string = "";
+    company: string = "";
+    description: string = "";
+    qualifications: string = "";
+    status: string = "APPLIED";
+    stage: string = "";
+    url: string = "";
+    submission: string = "";
+    notes: string = "";
+    error: string = "";
     constructor(private applicationService: ApplicationsService, private router: Router) {}
     onSubmit() {
         this.error = "";
@@ -37,9 +37,6 @@ export class CreateFormComponent {
         if (this.notes) {
             payload.notes = this.notes;
         }
-        this.applicationService.create(payload).subscribe({
-            next: (res) => this.router.navigate(["/applications", res.id]),
-            error: () => this.error = "Failed to create application."
-        });
+        this.applicationService.create(payload).subscribe({next: (res) => this.router.navigate(["/applications", res.id]), error: () => this.error = "Failed to create application."});
     }
 }

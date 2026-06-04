@@ -5,9 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { NgIf } from "@angular/common";
 @Component({selector: 'app-login-form', imports: [FormsModule, RouterLink, NgIf], templateUrl: './login-form.component.html', styleUrl: './login-form.component.css'})
 export class LoginFormComponent {
-    email = "";
-    password = "";
-    error = "";
+    email: string = "";
+    password: string = "";
+    error: string = "";
     constructor(private auth: AuthService, private router: Router) {}
     onSubmit() {
         this.error = "";

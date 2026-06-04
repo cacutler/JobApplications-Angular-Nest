@@ -6,16 +6,16 @@ import { NgIf } from '@angular/common';
 @Component({selector: 'app-edit-form', imports: [FormsModule, RouterLink, NgIf], templateUrl: './edit-form.component.html', styleUrl: './edit-form.component.css'})
 export class EditFormComponent implements OnInit {
     id!: number;
-    title = "";
-    company = "";
-    description = "";
-    qualifications = "";
-    status = "APPLIED";
-    stage = "";
-    url = "";
-    submission = "";
-    error = "";
-    notes = "";
+    title: string = "";
+    company: string = "";
+    description: string = "";
+    qualifications: string = "";
+    status: string = "APPLIED";
+    stage: string = "";
+    url: string = "";
+    submission: string = "";
+    error: string = "";
+    notes: string = "";
     constructor(private applicationsService: ApplicationsService, private route: ActivatedRoute, private router: Router) {}
     ngOnInit() {
         this.id = Number(this.route.snapshot.paramMap.get("id"));
@@ -55,9 +55,6 @@ export class EditFormComponent implements OnInit {
         if (this.notes) {
             payload.notes = this.notes;
         }
-        this.applicationsService.update(this.id, payload).subscribe({
-            next: () => this.router.navigate(['/applications', this.id]),
-            error: () => this.error = "Failed to update application."
-        });
+        this.applicationsService.update(this.id, payload).subscribe({next: () => this.router.navigate(['/applications', this.id]), error: () => this.error = "Failed to update application."});
     }
 }

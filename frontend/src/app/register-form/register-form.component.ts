@@ -5,11 +5,11 @@ import { AuthService } from '../services/auth.service';
 import {NgIf} from "@angular/common";
 @Component({selector: 'app-register-form', imports: [FormsModule, RouterLink, NgIf], templateUrl: './register-form.component.html', styleUrl: './register-form.component.css'})
 export class RegisterFormComponent {
-    name = "";
-    username = "";
-    email = "";
-    password = "";
-    error = "";
+    name: string = "";
+    username: string = "";
+    email: string = "";
+    password: string = "";
+    error: string = "";
     constructor(private auth: AuthService, private router: Router) {}
     onSubmit() {
         this.error = "";
