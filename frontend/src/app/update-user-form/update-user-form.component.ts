@@ -11,7 +11,7 @@ export class UpdateUserFormComponent implements OnInit {//Figure out how to fix 
     password: string = "";
     error: string = "";
     success: string = "";
-    constructor(private usersService: UsersService, private auth: AuthService) {}
+    constructor(private usersService: UsersService) {}
     ngOnInit() {
         this.usersService.getMe().subscribe({
             next: (user) => {
