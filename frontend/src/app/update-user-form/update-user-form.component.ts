@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { UsersService } from '../services/users.service';
 import { AuthService } from '../services/auth.service';
 @Component({selector: 'app-update-user-form', imports: [FormsModule, CommonModule, NgIf], templateUrl: './update-user-form.component.html', styleUrl: './update-user-form.component.css'})
-export class UpdateUserFormComponent implements OnInit {
+export class UpdateUserFormComponent implements OnInit {//Figure out how to fix bugs with the initial name and username not showing up in the form
     name: string = "";
     username: string = "";
     email: string = "";

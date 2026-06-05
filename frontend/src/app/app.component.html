@@ -1,10 +1,14 @@
 <main class="main">
     <h1>{{title}}</h1>
-    <button id="logout" *ngIf="isLoggedIn$ | async" (click)="onSubmit()">Logout</button>
-    <nav *ngIf="!(isLoggedIn$ | async)">
-        <div class="guest-links">
+    <nav>
+        <div id="guest-links" *ngIf="!(isLoggedIn$ | async)">
             <a routerLink="/login">Login</a>
             <a routerLink="/register">Sign Up</a>
+        </div>
+        <div id="authenticated-links" *ngIf="isLoggedIn$ | async">
+            <a routerLink="/applications">Applications</a>
+            <a routerLink="/profile/edit">Edit profile</a>
+            <a routerLink="/login" (click)="onSubmit()">Log Out</a>
         </div>
     </nav>
 </main>
