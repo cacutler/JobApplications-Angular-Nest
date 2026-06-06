@@ -1,6 +1,6 @@
 <h2>Applications</h2>
-<a routerLink="/applications/new">+ New Application</a>
-<p class="error" *ngIf="">{{error}}</p>
+<a routerLink="/applications/new" class="new-app-link">+ New Application</a>
+<p class="error" *ngIf="error" class="error">{{error}}</p>
 <p *ngIf="applications.length === 0 && !error">No applications yet.</p>
 <ul *ngIf="applications.length > 0">
     <li *ngFor="let app of applications">

@@ -1,0 +1,26 @@
+ul {
+    text-align: center;
+}
+.new-app-link {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 1rem;
+}
+li {
+    padding: 1rem;
+    width: 50%;
+    margin: auto;
+    border: solid black 1px;
+    list-style-type: none;
+}
+.error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+h2 {
+    text-align: center;
+    border-bottom: solid black 1px;
+    width: 25%;
+    margin: 1rem auto 0rem;
+}
