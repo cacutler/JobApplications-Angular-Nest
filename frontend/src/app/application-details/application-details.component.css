@@ -21,6 +21,13 @@ h3 {
 button {
     background-color: #00FF52;
     border: solid black 1px;
+    min-width: 15%;
+    width: 20%;
+    margin: auto;
+    padding: 1rem;
+}
+button:hover {
+    cursor: pointer;
 }
 #app-links {
     display: flex;
