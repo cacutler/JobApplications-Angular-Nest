@@ -9,7 +9,7 @@
     <textarea name="qualifications" id="qualifications" [(ngModel)]="qualifications"></textarea>
     <label for="notes">Notes</label>
     <textarea name="notes" id="notes" [(ngModel)]="notes"></textarea>
-    <label for="status"></label>
+    <label for="status">Status</label>
     <select name="status" id="status" [(ngModel)]="status">
         <option value="APPLIED" selected>Applied</option>
         <option value="REVIEW">In Review</option>
@@ -24,5 +24,5 @@
     <input type="date" name="submission" id="submission" [(ngModel)]="submission">
     <p class="error" *ngIf="error">{{error}}</p>
     <button type="submit">Update Application</button>
-    <a [routerLink]="['/application', id]">Cancel</a>
+    <a [routerLink]="['/applications', id]">Cancel</a>
 </form>

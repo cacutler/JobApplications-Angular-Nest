@@ -1,0 +1,32 @@
+h2 {
+    text-align: center;
+    margin: 2rem auto;
+    border-bottom: solid black 1px;
+    min-width: 30%;
+    width: 35%;
+}
+h3 {
+    text-align: center;
+}
+#application {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: auto;
+    padding: 2rem;
+    border: solid black 1px;
+    background-color: #00FFFF;
+    gap: 1rem;
+}
+button {
+    background-color: #00FF52;
+    border: solid black 1px;
+}
+#app-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+#app-links a {
+    text-decoration: none;
+}

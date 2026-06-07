@@ -1,19 +1,22 @@
-<div *ngIf="application">
-    <h2>{{application.title}}</h2>
+<h2>Application Details</h2>
+<div *ngIf="application" id="application">
+    <h3>{{application.title}}</h3>
     <div id="application-details">
         <p><strong>Current Status:</strong> {{application.status}}</p>
-        <p><strong>Stage:</strong> {{application.stage}}</p>
-        <p><strong>Job Post URL:</strong><a *ngIf="application.url" [href]="application.url" target="_url">{{application.url}}</a><span *ngIf="!application.url">-</span></p>
+        <p><strong>Stage:</strong> {{application.stage || "-"}}</p>
+        <p><strong>Job Post URL: </strong><a *ngIf="application.url" [href]="application.url" target="_url">{{application.url}}</a><span *ngIf="!application.url">-</span></p>
         <p><strong>Submission Date:</strong> {{application.submission ? (application.submission | date) : "-"}}</p>
         <p *ngIf="application.notes"><strong>Notes:</strong> {{application.notes}}</p><!-- Work on notes support -->
     </div>
     <div id="job-details">
-        <p><strong>Company:</strong> {{application.company}}</p>
+        <p><strong>Company:</strong> {{application.company || "-"}}</p>
         <p><strong>Description:</strong> {{application.description || "-"}}</p>
         <p><strong>Qualifications:</strong> {{application.qualifications || "-"}}</p>
     </div>
-    <a [routerLink]="['/applications', application.id, 'edit']">Edit</a>
+    <div id="app-links">
+        <a routerLink="/applications">Back to list</a>
+        <a [routerLink]="['/applications', application.id, 'edit']">Edit</a>
+    </div>
     <button (click)="delete()">Delete</button>
-    <a routerLink="/applications">Back to list</a>
 </div>
 <p class="error" *ngIf="error">{{error}}</p>

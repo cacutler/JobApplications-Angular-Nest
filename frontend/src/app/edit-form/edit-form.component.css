@@ -3,3 +3,10 @@
     font-weight: bold;
     text-align: center;
 }
+input, textarea, select {
+    margin-bottom: 0.5rem;
+}
+button {
+    background-color: #00FF52;
+    border: solid black 1px;
+}
