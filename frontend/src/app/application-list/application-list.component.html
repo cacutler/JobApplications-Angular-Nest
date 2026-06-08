@@ -1,12 +1,14 @@
 <h2>Applications</h2>
 <a routerLink="/applications/new" class="new-app-link">+ New Application</a>
 <p class="error" *ngIf="error" class="error">{{error}}</p>
-<input type="search" placeholder="Search applications">
-<p *ngIf="applications.length === 0 && !error">No applications yet.</p>
-<ul *ngIf="applications.length > 0">
-    <li *ngFor="let app of applications">
+<input type="search" placeholder="Search applications" [(ngModel)]="searchQuery" (input)="onSearch()">
+<p class="message" *ngIf="filteredApplications.length === 0 && !error">{{searchQuery ? "No matching applications." : "No applications yet."}}</p>
+<ul *ngIf="filteredApplications.length > 0">
+    <li *ngFor="let app of filteredApplications">
         <a [routerLink]="['/applications', app.id]"><strong>{{app.title}}</strong> - {{app.company || "N/A"}}<br>Go to Details &#x2192;</a>
         <span>{{app.status}}</span>
+        <span>{{app.stage}}</span>
+        <p>{{app.notes || "No notes included."}}</p>
         <button (click)="delete(app.id)">Delete</button>
     </li>
 </ul>
