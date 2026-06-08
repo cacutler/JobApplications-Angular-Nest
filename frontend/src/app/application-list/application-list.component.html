@@ -4,7 +4,7 @@
 <p *ngIf="applications.length === 0 && !error">No applications yet.</p>
 <ul *ngIf="applications.length > 0">
     <li *ngFor="let app of applications">
-        <a [routerLink]="['/applications', app.id]"><strong>{{app.title}}</strong> - {{app.company || "N/A"}}</a>
+        <a [routerLink]="['/applications', app.id]"><strong>{{app.title}}</strong> - {{app.company || "N/A"}}<br>Go to Details &#x2192;</a>
         <span>{{app.status}}</span>
         <button (click)="delete(app.id)">Delete</button>
     </li>

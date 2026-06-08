@@ -3,8 +3,15 @@ ul {
 }
 .new-app-link {
     display: flex;
-    flex-direction: row-reverse;
-    margin: 1rem;
+    justify-content: center;
+    margin: 1rem auto;
+    text-decoration: none;
+    color: black;
+    min-width: 8rem;
+    width: 9rem;
+    background-color: #00FFFF;
+    border: solid black 1px;
+    border-radius: 3px;
 }
 li {
     padding: 1rem;
@@ -17,6 +24,14 @@ li {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+li a {
+    text-decoration: none;
+    color: black;
+    padding: 0.5rem;
+}
+li a:hover {
+    background-color: #00DE94;
 }
 button {
     background-color: #00FF52;

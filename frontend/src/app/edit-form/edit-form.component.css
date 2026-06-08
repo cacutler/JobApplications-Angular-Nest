@@ -1,3 +1,9 @@
+h2 {
+    text-align: center;
+    border-bottom: solid black 1px;
+    margin: 1rem auto 0rem;
+    width: 30%;
+}
 .error {
     color: red;
     font-weight: bold;
@@ -9,4 +15,20 @@ input, textarea, select {
 button {
     background-color: #00FF52;
     border: solid black 1px;
+    width: 7rem;
+    padding: 0.5rem;
+    margin: auto;
+}
+button:hover {
+    cursor: pointer;
+}
+a {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    width: 5rem;
+    margin: 1rem auto 0rem;
+}
+a:hover {
+    background-color: #00DE94;
 }

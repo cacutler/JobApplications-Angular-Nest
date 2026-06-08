@@ -36,4 +36,9 @@ button:hover {
 }
 #app-links a {
     text-decoration: none;
+    color: black;
+    padding: 0.25rem;
+}
+#app-links a:hover {
+    background-color: #00DE94;
 }

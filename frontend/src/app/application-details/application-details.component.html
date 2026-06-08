@@ -14,9 +14,9 @@
         <p><strong>Qualifications:</strong> {{application.qualifications || "-"}}</p>
     </div>
     <div id="app-links">
-        <a routerLink="/applications">Back to list</a>
-        <a [routerLink]="['/applications', application.id, 'edit']">Edit</a>
+        <a routerLink="/applications" style="text-align: center;">Back to list<br>&#8592;</a>
+        <a [routerLink]="['/applications', application.id, 'edit']" style="text-align: center;">Edit<br>&#x270E;</a>
     </div>
-    <button (click)="delete()">Delete</button>
+    <button type="button" (click)="delete()">Delete</button>
 </div>
 <p class="error" *ngIf="error">{{error}}</p>
