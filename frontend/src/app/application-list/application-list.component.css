@@ -52,3 +52,9 @@ h2 {
     width: 25%;
     margin: 1rem auto 0rem;
 }
+input {
+    display: block;
+    width: 10rem;
+    margin: 0rem auto 1rem;
+    padding: 0.5rem;
+}
