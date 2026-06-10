@@ -22,6 +22,9 @@ button:hover {
 }
 input, textarea, select {
     margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border: solid black 1px;
+    border-radius: 3px;
 }
 a {
     text-decoration: none;
@@ -33,4 +36,14 @@ a {
 }
 a:hover {
     background-color: #00DE94;
+}
+@media screen and (max-width: 991px) {
+    h2 {
+        width: 40%;
+    }
+}
+@media screen and (max-width: 576px) {
+    h2 {
+        width: 70%;
+    }
 }

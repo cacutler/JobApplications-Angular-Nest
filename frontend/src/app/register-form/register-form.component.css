@@ -16,6 +16,8 @@ form a {
 input {
     margin-bottom: 0.5rem;
     padding: 0.5rem;
+    border-radius: 3px;
+    border: solid black 1px;
 }
 form button {
     margin: 1rem 0rem;
@@ -38,4 +40,14 @@ form a:hover {
     color: red;
     font-weight: bold;
     text-align: center;
+}
+@media screen and (max-width: 991px) {
+    h2 {
+        width: 40%;
+    }
+}
+@media screen and (max-width: 576px) {
+    h2 {
+        width: 70%;
+    }
 }

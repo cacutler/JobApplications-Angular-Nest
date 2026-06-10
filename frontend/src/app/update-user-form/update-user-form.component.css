@@ -6,6 +6,9 @@ h2 {
 }
 input {
     margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border: solid black 1px;
+    border-radius: 3px;
 }
 button {
     background-color: #00FF52;
@@ -16,4 +19,14 @@ button {
 }
 button:hover {
     cursor: pointer;
+}
+@media screen and (max-width: 991px) {
+    h2 {
+        width: 40%;
+    }
+}
+@media screen and (max-width: 576px) {
+    h2 {
+        width: 70%;
+    }
 }
