@@ -2,7 +2,8 @@ import { CommonModule, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UsersService } from '../services/users.service';
-@Component({selector: 'app-update-user-form', imports: [FormsModule, CommonModule, NgIf], templateUrl: './update-user-form.component.html', styleUrl: './update-user-form.component.css'})
+import { RouterLink } from "@angular/router";
+@Component({selector: 'app-update-user-form', imports: [FormsModule, CommonModule, NgIf, RouterLink], templateUrl: './update-user-form.component.html', styleUrl: './update-user-form.component.css'})
 export class UpdateUserFormComponent implements OnInit {
     name: string = "";
     username: string = "";

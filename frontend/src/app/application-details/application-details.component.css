@@ -19,12 +19,19 @@ h3 {
     gap: 1rem;
 }
 button {
+    margin: 1rem 0rem;
+    width: 25%;
+    align-self: center;
     background-color: #00FF52;
-    border: solid black 1px;
-    min-width: 15%;
-    width: 20%;
-    margin: auto;
-    padding: 1rem;
+    border-radius: 6px;
+    padding: 0.5rem 0rem;
+    border: none;
+    box-shadow: 0 4px 0 #00DE94;
+    transition: all 0.05s ease;
+}
+button:active {
+    transform: translateY(4px);
+    box-shadow: 0 0px 0 #00DE94;
 }
 button:hover {
     cursor: pointer;
@@ -37,8 +44,9 @@ button:hover {
 #app-links a {
     text-decoration: none;
     color: black;
-    padding: 0.25rem;
+    padding: 0.5rem;
 }
 #app-links a:hover {
     background-color: #00DE94;
+    border-radius: 6px;
 }

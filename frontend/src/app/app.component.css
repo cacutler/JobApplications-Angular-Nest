@@ -25,4 +25,5 @@ a {
 }
 a:hover {
     background-color: #00DE94;
+    border-radius: 6px;
 }

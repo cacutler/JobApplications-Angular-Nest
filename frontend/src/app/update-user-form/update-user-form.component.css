@@ -11,14 +11,34 @@ input {
     border-radius: 3px;
 }
 button {
+    margin: 1rem 0rem;
+    width: 25%;
+    align-self: center;
     background-color: #00FF52;
-    border: solid black 1px;
-    width: 9rem;
-    padding: 0.5rem;
-    margin: auto;
+    border-radius: 6px;
+    padding: 0.5rem 0rem;
+    border: none;
+    box-shadow: 0 4px 0 #00DE94;
+    transition: all 0.05s ease;
+}
+button:active {
+    transform: translateY(4px);
+    box-shadow: 0 0px 0 #00DE94;
 }
 button:hover {
     cursor: pointer;
+}
+a {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    width: 5rem;
+    margin: 1rem auto 0rem;
+    padding: 1rem;
+}
+a:hover {
+    background-color: #00DE94;
+    border-radius: 6px;
 }
 @media screen and (max-width: 991px) {
     h2 {

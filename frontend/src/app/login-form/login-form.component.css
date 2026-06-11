@@ -23,16 +23,22 @@ form button {
     width: 25%;
     align-self: center;
     background-color: #00FF52;
-    border-radius: 5px;
+    border-radius: 6px;
     padding: 0.5rem 0rem;
-    border: solid black 1px;
+    border: none;
+    box-shadow: 0 4px 0 #00DE94;
+    transition: all 0.05s ease;
+}
+form button:active {
+    transform: translateY(4px);
+    box-shadow: 0 0px 0 #00DE94;
 }
 form button:hover {
     cursor: pointer;
 }
 form a:hover {
     background-color: #00DE94;
-    align-self: center;
+    border-radius: 6px;
 }
 .error {
     color: red;
