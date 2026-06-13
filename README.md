@@ -66,7 +66,7 @@ npx prisma migrate deploy
 5. Start the backend:
 
 ```bash
-npm run start:dev
+npm run start
 ```
 
 The API listens by default on `http://localhost:3000`.
@@ -83,7 +83,7 @@ npm install
 2. Start the Angular development server:
 
 ```bash
-npm run start
+ng serve
 ```
 
 3. Open the app in your browser:
