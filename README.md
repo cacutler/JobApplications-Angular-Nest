@@ -7,6 +7,10 @@ A full-stack job application tracker built with:
 
 Users can register and authenticate, then create, view, update, and delete their own job applications. The app enforces per-user ownership so one user cannot see or modify another user's data.
 
+**Main Page Screenshot**
+
+![Main Page](JobApplications.png)
+
 ## Features
 
 - User registration and login with JWT-based auth
