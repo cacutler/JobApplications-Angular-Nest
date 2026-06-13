@@ -15,7 +15,7 @@ export class RegisterFormComponent {
         this.error = "";
         this.auth.register(this.name, this.username, this.email, this.password).subscribe({
             next: (res) => {
-                this.auth.saveToken(res.access_token);
+                this.auth.saveToken(res.access_token, res.user);
                 this.router.navigate(["/applications"]);
             },
             error: (err) => {

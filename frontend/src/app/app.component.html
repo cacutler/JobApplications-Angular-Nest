@@ -6,6 +6,7 @@
             <a routerLink="/register">Sign Up</a>
         </div>
         <div id="authenticated-links" *ngIf="isLoggedIn$ | async">
+            <span>Welcome, {{(user$ | async)?.name || (user$ | async)?.username}}</span>
             <a routerLink="/applications">Applications</a>
             <a routerLink="/profile/edit">Edit profile</a>
             <a routerLink="/login" (click)="onSubmit()">Log Out</a>

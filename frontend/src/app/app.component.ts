@@ -7,8 +7,13 @@ import { AsyncPipe } from '@angular/common';
 export class AppComponent {
     title: string = "Job Tracker";
     isLoggedIn$;
+    user$;
     constructor(private auth: AuthService, private router: Router) {
         this.isLoggedIn$ = this.auth.isLoggedIn$;
+        this.user$ = this.auth.user$;
+        if (this.auth.isLoggedIn()) {
+            this.auth.fetchandSetUser();
+        }
     }
     get isLoggedIn(): boolean {
         return this.auth.isLoggedIn();

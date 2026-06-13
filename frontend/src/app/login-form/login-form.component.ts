@@ -13,7 +13,7 @@ export class LoginFormComponent {
         this.error = "";
         this.auth.login(this.email, this.password).subscribe({
             next: (res) => {
-                this.auth.saveToken(res.access_token);
+                this.auth.saveToken(res.access_token, res.user);
                 this.router.navigate(['/applications']);
             },
             error: () => this.error = "Invalid email or password."

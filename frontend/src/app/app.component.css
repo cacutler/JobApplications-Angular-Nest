@@ -27,3 +27,7 @@ a:hover {
     background-color: #00DE94;
     border-radius: 6px;
 }
+span {
+    font-weight: bold;
+    padding: 0.5rem
+}
